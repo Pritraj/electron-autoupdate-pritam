@@ -1,27 +1,58 @@
 {
   "name": "electron-autoupdate-pritam",
-  "version": "1.0.2",
-  "description": "",
-  "main": "main.js",
+  "productName": "Simple Updater Example",
+  "version": "0.0.1",
+  "description": "Example of using electron-simple-updater",
+  "main": "app/main.js",
+  "scripts": {
+    "postinstall": "install-app-deps",
+    "start": "electron .",
+    "dist": "electron-builder",
+    "publish": "publish",
+    "release": "npm run dist && npm run publish"
+  },
+  "author": "Pritam Rajput",
+  "license": "MIT",
+  "private": true,
+  "build": {
+    "appId": "pritam.electron-autoupdate-pritam",
+    "files": [
+      "!publisher.json",
+      "!README.md",
+      "!updates.json"
+    ],
+    "linux": {
+      "category": "Development",
+      "publish": false,
+      "target": "AppImage"
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": "squirrel"
+    },
+    "squirrelWindows": {
+      "iconUrl": "https://raw.githubusercontent.com/Pritraj/electron-autoupdate-pritam/master/example/build/icon.ico"
+    }
+  },
+  "updater": {
+    "url": "https://raw.githubusercontent.com/Pritraj/electron-autoupdate-pritam/master/example/updates.json"
+  },
+  "engines": {
+    "node": ">=6.0"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Pritraj/electron-autoupdate-pritam.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
-    "build": "electron-builder build --win --publish never",
-    "deploy": "electron-builder build --win --publish always"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "electron": "^9.2.0",
-    "electron-builder": "^22.8.0"
+    "url": "git+https://github.com/Pritraj/electron-autoupdate-pritam.git"
   },
   "dependencies": {
-    "electron-log": "^4.2.3",
-    "electron-updater": "^4.3.4"
+    "electron-simple-updater": "^2.0.0-beta.1"
+  },
+  "devDependencies": {
+    "electron": "*",
+    "electron-builder": "*",
+    "electron-simple-publisher": "*",
+    "electron-builder-squirrel-windows": "*"
   }
 }
-
