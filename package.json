@@ -1,6 +1,6 @@
 {
   "name": "electron-autoupdate-pritam",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "main.js",
   "repository": {
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "electron-log": "^4.2.3",
-    "electron-updater": "^4.3.4"
+    "electron-updater": "^4.3.4",
+    "update-electron-app": "^1.5.0"
   }
 }
-
